@@ -8,7 +8,7 @@
 ## Technologies used
 1. React, HTML, CSS
 2. Webpack/Babel
-3. Node
+3. Node/Express
 
 ## Important files
 1. dist/index.html 
