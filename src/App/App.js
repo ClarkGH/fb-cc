@@ -40,6 +40,12 @@ class App extends React.Component {
       updatedColor = this.state.pastColors.slice(-1);
       undoArr = this.state.pastColors.slice(0,-1);
 
+      if (redoArr.length > 0) {
+        redoArr = [...redoArr, this.state.presentColor]
+      } else {
+        redoArr = [this.state.presentColor]
+      }
+
       this.setState({
         presentColor: updatedColor,
         pastColors: undoArr,
@@ -51,11 +57,19 @@ class App extends React.Component {
   }
 
   redo(){
-    console.log(this.state.futureColors)
+    const redoArr = this.state.futureColors,
+      newArr = redoArr.slice(0, -1),
+      currentColor = this.state.presentColor;
+    if (redoArr.length > 0) {
+      this.setState({
+        futureColors: [...newArr],
+        presentColor: redoArr.slice(-1),
+        pastColors: [...this.state.pastColors, currentColor]
+      })
+    }
   }
 
   render () {
-    console.log(this.state.pastColors)
     return (
       <div className={css`background-color: ${this.state.presentColor || '#FFF'};`}>
         <MagicButton handleClick={() => this.colorize('#00F')}>Blue</MagicButton>
