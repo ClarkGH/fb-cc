@@ -9,13 +9,12 @@
 1. React, HTML, CSS
 2. Webpack/Babel
 3. Node/Express
+4. CSS in JS via emotion
 
 ## Important files
 1. dist/index.html 
 This is the main HTML file.
-2. src/main.css
-This is the only CSS file being used
-3. src/main.js 
+2. src/main.js 
 This is the main javascript file for the react application
-4. src/App/
+3. src/App/
 All other javascript component files live in here
